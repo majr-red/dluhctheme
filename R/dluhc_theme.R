@@ -14,7 +14,7 @@
 #' This function allows you to add the dluhc theme to your ggplotgraphics.
 
 
-dluhc_theme <- function() {
+dluhc_theme <- function(size = 2) {
   font <- "Helvetica"
 
   ggplot2::theme(
@@ -37,7 +37,7 @@ dluhc_theme <- function() {
     legend.title = ggplot2::element_blank(),
     legend.key = ggplot2::element_blank(),
     legend.text = ggplot2::element_text(family=font,
-                                        size=18,
+                                        size=size*9,
                                         color="#222222"),
 
     #Axis format
@@ -45,7 +45,7 @@ dluhc_theme <- function() {
     #In some cases, axis lines and axis ticks are things we would want to have in the chart - the cookbook shows examples of how to do so.
     axis.title = ggplot2::element_blank(),
     axis.text = ggplot2::element_text(family=font,
-                                      size=18,
+                                      size=size*9,
                                       color="#222222"),
     axis.text.x = ggplot2::element_text(margin=ggplot2::margin(5, b = 10)),
     axis.ticks = ggplot2::element_blank(),
@@ -63,6 +63,6 @@ dluhc_theme <- function() {
 
     #Strip background (#This sets the panel background for facet-wrapped plots to white, removing the standard grey ggplot background colour and sets the title size of the facet-wrap title to font size 22)
     strip.background = ggplot2::element_rect(fill="white"),
-    strip.text = ggplot2::element_text(size  = 22,  hjust = 0)
+    strip.text = ggplot2::element_text(size  = size*11,  hjust = 0)
   )
 }

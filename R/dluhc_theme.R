@@ -14,7 +14,7 @@
 #' This function allows you to add the dluhc theme to your ggplotgraphics.
 
 
-dluhc_style <- function() {
+dluhc_theme <- function() {
   font <- "Helvetica"
 
   ggplot2::theme(

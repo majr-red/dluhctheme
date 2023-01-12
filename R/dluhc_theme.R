@@ -1,7 +1,3 @@
-# Hello, world!
-#
-# This is an example function named 'hello'
-# which prints 'Hello, world!'.
 #
 # You can learn more about package authoring with RStudio at:
 #
@@ -13,20 +9,10 @@
 #   Check Package:             'Ctrl + Shift + E'
 #   Test Package:              'Ctrl + Shift + T'
 
-hello <- function() {
-  print("Hello, world!")
-}
-
-#' Add bbc theme to ggplot chart
+#' Add dluhc theme to ggplot chart
 #'
-#' This function allows you to add the bbc theme to your ggplotgraphics.
-#' @keywords bbc_style
-#' @export
-#' @examples
-#' line <- ggplot(line_df, aes(x = year, y = lifeExp)) +
-#' geom_line(colour = "#007f7f", size = 1) +
-#' geom_hline(yintercept = 0, size = 1, colour="#333333") +
-#' bbc_style()
+#' This function allows you to add the dluhc theme to your ggplotgraphics.
+
 
 dluhc_style <- function() {
   font <- "Helvetica"

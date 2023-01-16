@@ -1,6 +1,13 @@
-#' Add dluhc theme to ggplot chart
+#' Title
 #'
-#' This function creates a times series graph on a standard format based on receiving data where the date code is in the format
+#' @param .data A dataframe in long format with 2 columns necesarry: Date and value
+#' @param xcol The column name which contains the date value in a widely used date format: "%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"
+#' @param ycol The column name which contains the values
+#'
+#' @return
+#' @export
+#'
+#' @examples
 dluhc_time_series <- function(.data,xcol,ycol){
   .data <- .data %>%
     mutate(Date = as.Date({{xcol}},tryFormats = c("%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"))) %>%

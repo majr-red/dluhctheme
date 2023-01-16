@@ -24,3 +24,4 @@ dluhc_2var_time_series <- function(.data,xcol,ycol,groupcol){
     scale_y_continuous(expand = c(0,0)) +
     dluhctheme::dluhc_theme()
 }
+

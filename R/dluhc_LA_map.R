@@ -20,10 +20,10 @@ dluhc_LA_map <- function(.data,variable,LA_var,map_colour = "#012169"){
 
     map <- map +
 
-      geom_rect( xmin = sf::st_bbox(map_London)[[1]]-2000,
-                 ymin = sf::st_bbox(map_London)[[2]]-2000,
-                 xmax = sf::st_bbox(map_London)[[3]]+2000,
-                 ymax = sf::st_bbox(map_London)[[4]]+2000,
+      geom_rect( xmin = sf::st_bbox(map_London)[[1]],
+                 ymin = sf::st_bbox(map_London)[[2]],
+                 xmax = sf::st_bbox(map_London)[[3]],
+                 ymax = sf::st_bbox(map_London)[[4]],
                  fill=NA,
                  colour = "black",
                  size = 0.8)
@@ -33,8 +33,8 @@ dluhc_LA_map <- function(.data,variable,LA_var,map_colour = "#012169"){
       draw_plot(
         {
           map +
-            coord_sf(   xlim = sf::st_bbox(map_London)[c(1,3)]+c(-2000,2000),
-                        ylim = sf::st_bbox(map_London)[c(2,4)]+c(-2000,2000),
+            coord_sf(   xlim = sf::st_bbox(map_London)[c(1,3)],
+                        ylim = sf::st_bbox(map_London)[c(2,4)],
                         expand = FALSE) +
             theme(legend.position = "none",
                   plot.title = element_blank())

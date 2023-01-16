@@ -1,4 +1,4 @@
-#' Title
+#' Create a single line time series graph in a dluhc theme
 #'
 #' @param .data A dataframe in long format with 2 columns necesarry: Date and value
 #' @param xcol The column name which contains the date value in a widely used date format: "%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"

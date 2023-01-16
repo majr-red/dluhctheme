@@ -48,7 +48,7 @@ dluhc_theme <- function(size = 2) {
                                       size=size*9,
                                       color="#222222"),
     axis.text.x = ggplot2::element_text(margin=ggplot2::margin(5, b = 10)),
-    axis.ticks = ggplot2::element_blank(),
+    axis.ticks = ggplot2::element_line(color = "#cbcbcb"),
     axis.line = ggplot2::element_blank(),
 
     #Grid lines

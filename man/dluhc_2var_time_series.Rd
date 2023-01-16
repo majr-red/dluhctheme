@@ -2,7 +2,7 @@
 % Please edit documentation in R/dluhc_2var_time_series.R
 \name{dluhc_2var_time_series}
 \alias{dluhc_2var_time_series}
-\title{Title}
+\title{Creating a 2 line time series graph in a DLUHC style}
 \usage{
 dluhc_2var_time_series(.data, xcol, ycol, groupcol)
 }
@@ -19,5 +19,5 @@ dluhc_2var_time_series(.data, xcol, ycol, groupcol)
 A ggplot2 object
 }
 \description{
-Title
+Creating a 2 line time series graph in a DLUHC style
 }

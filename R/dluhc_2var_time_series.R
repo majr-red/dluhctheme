@@ -1,4 +1,4 @@
-#' Creating a 2 line time series graph in a DLUHC style
+#' Create a 2 line time series graph in a DLUHC style
 #'
 #' @param .data A dataframe with the data in a long format with one column for the date and one column for the variable value
 #' @param xcol The column name of the dataframe which contains the date variable

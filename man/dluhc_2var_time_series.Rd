@@ -7,7 +7,7 @@
 dluhc_2var_time_series(.data, xcol, ycol, groupcol)
 }
 \arguments{
-\item{.data}{A dataframe with the data in a long format with one column for the date (in the format "%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y" or "%d-%b-%y") and one column for the variable value}
+\item{.data}{A dataframe with the data in a long format with one column for the date and one column for the variable value}
 
 \item{xcol}{The column name of the dataframe which contains the date variable}
 

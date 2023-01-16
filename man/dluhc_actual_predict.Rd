@@ -16,7 +16,7 @@ dluhc_actual_predict(
 \arguments{
 \item{.data}{A dataframe in long format with 2 columns necesarry: Date and value}
 
-\item{xcol}{The column name which contains the date value in a widely used date format: "%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"}
+\item{xcol}{The column name which contains the date value in a widely used date format}
 
 \item{ycol}{The column name which contains the values}
 

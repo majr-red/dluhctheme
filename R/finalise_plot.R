@@ -45,6 +45,7 @@ create_footer <- function (source_name, logo_image_path,footerfontsize = 18) {
 #' width_pixels = 640,
 #' height_pixels = 450,
 #' logo_image_path = "logo_image_filepath.png"
+#' footerfontsize = 18
 #' )
 #'
 #' @export

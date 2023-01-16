@@ -59,9 +59,4 @@ dluhc_LA_map <- function(.data,variable,LA_var,map_colour = "#012169"){
     map
 }
 
-  # a <- sf::st_read("Q:/GI_Data/Boundaries/Districts/2021/Local_Authority_Districts_(May_2021)_UK_BUC/Local_Authority_Districts_(May_2021)_UK_BUC.shp") %>%
-  #   filter(!str_detect(LAD21CD,"S")&!str_detect(LAD21CD,"N")) %>%
-  #   rename("Length of Shape"=Shape__Len)
-  #
-  # dluhc_LA_map(a,`Length of Shape`,LAD21CD) +
-  #   theme(legend.title = element_text("R"))
+

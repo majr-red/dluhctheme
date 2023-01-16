@@ -1,3 +1,15 @@
+
+#' Create a standard theme map from an sf object
+#'
+#' @param .data An sf object which has data broken down by local authority. This function only works for data in local authority breakdown only.
+#' @param variable The column in the .data which has the numeric value to be mapped
+#' @param LA_var The column which contains the Local Authority code
+#' @param map_colour The colour which you want to represent the high value, the low value will always be white
+#'
+#' @return
+#' @export
+#'
+#' @examples
 dluhc_LA_map <- function(.data,variable,LA_var,map_colour = "#012169"){
   library(cowplot)
   map <-

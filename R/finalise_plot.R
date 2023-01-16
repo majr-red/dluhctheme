@@ -36,7 +36,6 @@ create_footer <- function (source_name, logo_image_path,footerfontsize = 18) {
 #'  which needs to be a PNG file - defaults to DLUHC image that sits within the data folder of your package
 #' @param footerfontsize Size of the font used in the footer
 #' @return (Invisibly) an updated ggplot object.
-
 #' @keywords finalise_plot
 #' @examples
 #' finalise_plot(plot_name = myplot,

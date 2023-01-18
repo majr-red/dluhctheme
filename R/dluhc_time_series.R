@@ -17,7 +17,7 @@ dluhc_time_series <- function(.data,datecol,ycol,dateformat="%Y-%m-%d"){
   is.convertible.to.date <- function(x) !is.na(as.Date(as.character(x), tz = 'UTC', format = dateformat))
 
   if(any(is.convertible.to.date(pull(.data,{{datecol}}))==FALSE)){
-    stop("Date column not in format specified. Check the dateformat argument in the function")
+    stop("Date column not in format specified, or contains some NA values. Check the dateformat argument in the function")
   }
 
   if(any(replace_na(is.numeric(pull(.data,{{ycol}})),TRUE)==FALSE)){

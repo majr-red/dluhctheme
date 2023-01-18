@@ -1,15 +1,16 @@
 #' Create a single line time series graph in a dluhc theme
 #'
-#' @param .data A dataframe in long format with 2 columns necesarry: Date and value
-#' @param datecol The column name which contains the date value in a widely used date format: "%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"
+#' @param .data A dataframe in long format with 2 columns necessary: Date and value
+#' @param datecol The column name which contains the date value in a widely used date format
 #' @param ycol The column name which contains the values
 #' @param dateformat is the format which the date is presented in using the standard R date format, see here for more detail https://www.statology.org/r-date-format/
 #'
-#' @return
+#' @return a ggplot object
 #' @export
 #'
 #' @examples
 #' df <- dplyr::filter(gapminder::gapminder,country=="China")
+#'
 #' dluhc_time_series(.data=df,datecol = year, ycol = lifeExp, dateformat = "%Y")
 
 dluhc_time_series <- function(.data,datecol,ycol,dateformat="%Y-%m-%d"){

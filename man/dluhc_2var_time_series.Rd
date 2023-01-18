@@ -4,12 +4,18 @@
 \alias{dluhc_2var_time_series}
 \title{Create a 2 line time series graph in a DLUHC style}
 \usage{
-dluhc_2var_time_series(.data, xcol, ycol, groupcol)
+dluhc_2var_time_series(
+  .data,
+  datecol,
+  ycol,
+  groupcol,
+  dateformat = "\%Y-\%m-\%d"
+)
 }
 \arguments{
 \item{.data}{A dataframe with the data in a long format with one column for the date and one column for the variable value}
 
-\item{xcol}{The column name of the dataframe which contains the date variable}
+\item{datecol}{The column name of the dataframe which contains the date variable}
 
 \item{ycol}{The column name of the dataframe which contains the value}
 
@@ -20,4 +26,8 @@ A ggplot2 object
 }
 \description{
 Create a 2 line time series graph in a DLUHC style
+}
+\examples{
+df <- dplyr::filter(gapminder::gapminder,country=="Australia"|country=="China")
+dluhc_2var_time_series(.data=df,datecol = year, ycol = lifeExp, groupcol = country, dateformat = "\%Y")
 }

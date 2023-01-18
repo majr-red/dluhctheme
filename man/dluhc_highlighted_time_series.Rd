@@ -4,19 +4,32 @@
 \alias{dluhc_highlighted_time_series}
 \title{Highlighted faceted graphs in the dluhc style}
 \usage{
-dluhc_highlighted_time_series(.data, xcol, ycol, groupcol, textsize = 1)
+dluhc_highlighted_time_series(
+  .data,
+  datecol,
+  ycol,
+  groupcol,
+  textsize = 1,
+  dateformat = "\%Y-\%m-\%d"
+)
 }
 \arguments{
 \item{.data}{The dataframe used for the analysis, ideally a 3 column dataframe}
 
-\item{xcol}{The column name which has the date variables in. Date needs to be in one of three formats: "2021-01-23", "23/01/2021" or "21-Jan-2021"}
+\item{datecol}{The column name which has the date variables in. Date needs to be in one of three formats: "2021-01-23", "23/01/2021" or "21-Jan-2021"}
 
 \item{ycol}{The column name which has the numeric values, ensure these are in numeric format}
 
 \item{groupcol}{The column name which will split the data into individual graphs}
 
 \item{textsize}{A numeric variable for text size, this isnt the actual text size, but will scale the text size in the facets correctly}
+
+\item{dateformat}{The format which the date is presented in using the standard R date format, see here for more detail https://www.statology.org/r-date-format/}
 }
 \description{
 Highlighted faceted graphs in the dluhc style
+}
+\examples{
+df <- dplyr::filter(gapminder::gapminder,country \%in\% c("Austria","India","China","France")
+dluhc_highlight_time_series(.data=df,datecol = year, ycol = lifeExp, groupcol = country, dateformat = "\%Y")
 }

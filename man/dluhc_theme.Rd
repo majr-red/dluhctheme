@@ -2,10 +2,17 @@
 % Please edit documentation in R/dluhc_theme.R
 \name{dluhc_theme}
 \alias{dluhc_theme}
-\title{Add dluhc theme to ggplot chart}
+\title{ggplot function to create standard background and axis labels for a DLUHC style graph}
 \usage{
 dluhc_theme(size = 2)
 }
+\arguments{
+\item{size}{a variable used to edit the text size. This is not the font size, but works as a multiplier for font size, default is 2}
+}
 \description{
-This function allows you to add the dluhc theme to your ggplotgraphics.
+ggplot function to create standard background and axis labels for a DLUHC style graph
+}
+\examples{
+df <- dplyr::filter(gapminder::gapminder,country == "Austria")
+ggplot(df, aes(x = year, y=lifeExp)) + dluhc_theme()
 }

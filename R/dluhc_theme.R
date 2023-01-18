@@ -1,8 +1,13 @@
-#' Add dluhc theme to ggplot chart
+#' ggplot function to create standard background and axis labels for a DLUHC style graph
 #'
-#' This function allows you to add the dluhc theme to your ggplotgraphics.
-
-
+#' @param size a variable used to edit the text size. This is not the font size, but works as a multiplier for font size, default is 2
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' df <- dplyr::filter(gapminder::gapminder,country == "Austria")
+#' ggplot(df, aes(x = year, y=lifeExp)) + dluhc_theme()
 dluhc_theme <- function(size = 2) {
 
     ggplot2::theme(

@@ -10,7 +10,7 @@
 #' @param save A TRUE/FALSE statement if you want the file to be exported as a png file. If TRUE, the filepath must be defined
 #' @param filepath If save is TRUE, filepath is the save location of the png output must be in the form of quotations
 #'
-#' @return
+#' @return a ggplot map, or a png file if save is TRUE
 #' @export
 #'
 #' @examples

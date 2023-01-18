@@ -23,5 +23,6 @@ Create a single line time series graph in a dluhc theme
 }
 \examples{
 df <- dplyr::filter(gapminder::gapminder,country=="China")
+
 dluhc_time_series(.data=df,datecol = year, ycol = lifeExp, dateformat = "\%Y")
 }

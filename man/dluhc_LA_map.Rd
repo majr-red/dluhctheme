@@ -4,17 +4,42 @@
 \alias{dluhc_LA_map}
 \title{Create a standard theme map from an sf object}
 \usage{
-dluhc_LA_map(.data, variable, LA_var, map_colour = "#012169")
+dluhc_LA_map(
+  .data,
+  variable,
+  LA_col,
+  map_colour = "#012169",
+  year = 2022,
+  countries = "E",
+  save = FALSE,
+  filepath = NULL
+)
 }
 \arguments{
 \item{.data}{An sf object which has data broken down by local authority. This function only works for data in local authority breakdown only.}
 
 \item{variable}{The column in the .data which has the numeric value to be mapped}
 
-\item{LA_var}{The column which contains the Local Authority code}
+\item{LA_col}{The column which contains the Local Authority code}
 
 \item{map_colour}{The colour which you want to represent the high value, the low value will always be white}
+
+\item{year}{The year which the LA codes you are using relate to}
+
+\item{countries}{The countries which you wish to appear on the map. These are E, E+W, GB and UK for England, England+Wales, Great Britain and United Kingdom respectively}
+
+\item{save}{A TRUE/FALSE statement if you want the file to be exported as a png file. If TRUE, the filepath must be defined}
+
+\item{filepath}{If save is TRUE, filepath is the save location of the png output must be in the form of quotations}
+}
+\value{
+a ggplot map, or a png file if save is TRUE
 }
 \description{
 Create a standard theme map from an sf object
+}
+\examples{
+rawdata <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1084731/LAHS_all_data_2020_2021_-_06_2022.csv")
+df <- select(rawdata,organisation.id,a1a)
+dluhc_LA_map(df,a1a,organisation.id,year = 2020,countries = "E",save = TRUE, filepath = "Council_Housing_Stock_map.png")
 }

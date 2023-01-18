@@ -17,5 +17,6 @@ ggplot function to create standard background and axis labels for a DLUHC style 
 }
 \examples{
 df <- dplyr::filter(gapminder::gapminder,country == "Austria")
-ggplot(df, aes(x = year, y=lifeExp)) + dluhc_theme()
+ggplot(df, aes(x = year, y=lifeExp))
++ dluhc_theme()
 }

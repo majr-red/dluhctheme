@@ -49,7 +49,7 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
 
   library(cowplot)
 
-  LA_map_data <- sf::st_read(paste0("github.com/communitiesuk/dluhctheme/raw/master/data/",map_match$filenames[which(map_match$year==year)]))
+  LA_map_data <- sf::st_read(paste0("https://github.com/communitiesuk/dluhctheme/raw/master/data/",map_match$filenames[which(map_match$year==year)]))
 
 
 

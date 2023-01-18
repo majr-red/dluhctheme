@@ -2,12 +2,13 @@
 #'
 #' @param size a variable used to edit the text size. This is not the font size, but works as a multiplier for font size, default is 2
 #'
-#' @return
+#' @return a ggplot object
 #' @export
 #'
 #' @examples
 #' df <- dplyr::filter(gapminder::gapminder,country == "Austria")
-#' ggplot(df, aes(x = year, y=lifeExp)) + dluhc_theme()
+#' ggplot(df, aes(x = year, y=lifeExp))
+#' + dluhc_theme()
 dluhc_theme <- function(size = 2) {
 
     ggplot2::theme(

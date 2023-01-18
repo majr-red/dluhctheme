@@ -4,15 +4,24 @@
 \alias{dluhc_time_series}
 \title{Create a single line time series graph in a dluhc theme}
 \usage{
-dluhc_time_series(.data, xcol, ycol)
+dluhc_time_series(.data, datecol, ycol, dateformat = "\%Y-\%m-\%d")
 }
 \arguments{
-\item{.data}{A dataframe in long format with 2 columns necesarry: Date and value}
+\item{.data}{A dataframe in long format with 2 columns necessary: Date and value}
 
-\item{xcol}{The column name which contains the date value in a widely used date format: "%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"}
+\item{datecol}{The column name which contains the date value in a widely used date format}
 
 \item{ycol}{The column name which contains the values}
+
+\item{dateformat}{is the format which the date is presented in using the standard R date format, see here for more detail https://www.statology.org/r-date-format/}
+}
+\value{
+a ggplot object
 }
 \description{
 Create a single line time series graph in a dluhc theme
+}
+\examples{
+df <- dplyr::filter(gapminder::gapminder,country=="China")
+dluhc_time_series(.data=df,datecol = year, ycol = lifeExp, dateformat = "\%Y")
 }

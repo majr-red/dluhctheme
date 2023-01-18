@@ -9,6 +9,9 @@ dluhc_theme(size = 2)
 \arguments{
 \item{size}{a variable used to edit the text size. This is not the font size, but works as a multiplier for font size, default is 2}
 }
+\value{
+a ggplot object
+}
 \description{
 ggplot function to create standard background and axis labels for a DLUHC style graph
 }

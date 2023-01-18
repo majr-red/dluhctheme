@@ -26,6 +26,9 @@ dluhc_highlighted_time_series(
 
 \item{dateformat}{The format which the date is presented in using the standard R date format, see here for more detail https://www.statology.org/r-date-format/}
 }
+\value{
+a ggplot object
+}
 \description{
 Highlighted faceted graphs in the dluhc style
 }

@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' df <- dplyr::filter(gapminder::gapminder,country=="China")
-#' dluhc_time_series(.data=df,datecol = year, ycol = lifeExp, groupcol = country, dateformat = "%Y")
+#' dluhc_time_series(.data=df,datecol = year, ycol = lifeExp, dateformat = "%Y")
 
 dluhc_time_series <- function(.data,datecol,ycol,dateformat="%Y-%m-%d"){
   library(tidyverse)
@@ -20,8 +20,13 @@ dluhc_time_series <- function(.data,datecol,ycol,dateformat="%Y-%m-%d"){
     stop("Date column not in format specified. Check the dateformat argument in the function")
   }
 
+  if(any(replace_na(is.numeric(pull(.data,{{ycol}})),TRUE)==FALSE)){
+    stop("Value column contains non-numeric values. Check your data and try again")
+  }
+
+
   .data <- .data %>%
-    mutate(Date = as.Date({{datecol}},tryFormats = dateformat)) %>%
+    mutate(Date = as.Date(as.character({{datecol}}),tryFormats = dateformat)) %>%
     mutate(value = {{ycol}})
 
   ggplot2::ggplot(data = .data,aes(x = Date,y = value)) +

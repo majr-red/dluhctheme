@@ -7,7 +7,7 @@
 #' @param textsize A numeric variable for text size, this isnt the actual text size, but will scale the text size in the facets correctly
 #' @param dateformat The format which the date is presented in using the standard R date format, see here for more detail https://www.statology.org/r-date-format/
 #'
-#' @return
+#' @return a ggplot object
 #' @export
 #'
 #' @examples

@@ -10,6 +10,7 @@
 #'
 #' @examples
 #' df <- dplyr::filter(gapminder::gapminder,country=="Australia"|country=="China")
+#'
 #' dluhc_2var_time_series(.data=df,datecol = year, ycol = lifeExp, groupcol = country, dateformat = "%Y")
 
 dluhc_2var_time_series <- function(.data,datecol,ycol,groupcol,dateformat = "%Y-%m-%d"){

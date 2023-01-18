@@ -4,15 +4,14 @@
 
 
 dluhc_theme <- function(size = 2) {
-  font <- "Helvetica"
 
-  ggplot2::theme(
+    ggplot2::theme(
 
     #Text format:
     #This sets the title to a blank, this can be overridden by theme code later on in the ggplot call
-    plot.title = ggplot2::element_blank(),
+    plot.title = ggplot2::element_text(size = size*11,face = "bold"),
     #This sets the subtitle to a blank, this can be overridden by theme code later on in the ggplot call
-    plot.subtitle = ggplot2::element_blank(),
+    plot.subtitle = ggplot2::element_text(size = size*9),
 
     plot.caption = ggplot2::element_blank(),
     #This leaves the caption text element empty, because it is set elsewhere in the finalise plot function
@@ -25,7 +24,7 @@ dluhc_theme <- function(size = 2) {
     legend.background = ggplot2::element_blank(),
     legend.title = ggplot2::element_blank(),
     legend.key = ggplot2::element_blank(),
-    legend.text = ggplot2::element_text(family=font,
+    legend.text = ggplot2::element_text(
                                         size=size*9,
                                         color="#222222"),
 
@@ -33,7 +32,7 @@ dluhc_theme <- function(size = 2) {
     #This sets the text font, size and colour for the axis test, as well as setting the margins and removes lines and ticks.
     #In some cases, axis lines and axis ticks are things we would want to have in the chart - the cookbook shows examples of how to do so.
     axis.title = ggplot2::element_blank(),
-    axis.text = ggplot2::element_text(family=font,
+    axis.text = ggplot2::element_text(
                                       size=size*9,
                                       color="#222222"),
     axis.text.x = ggplot2::element_text(margin=ggplot2::margin(5, b = 10)),

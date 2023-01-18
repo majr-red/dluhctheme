@@ -37,7 +37,7 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
   map_match <-
     data.frame(
       year = c(2020,2021,2022),
-      filenames = c("Local_Authority_Districts_(December_2020)_UK_BUC.shp","Local_Authority_Districts_(May_2021)_UK_BUC.shp","LAD_DEC_2022_UK_BUC.shp"),
+      filenames = c("LAD_Dec2020_BUC","LAD_May2021_BUC","LAD_Dec2022_BUC"),
       LA_Column = c("LAD20CD","LAD21CD","LAD22CD")
     )
 
@@ -49,7 +49,18 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
 
   library(cowplot)
 
-  LA_map_data <- sf::st_read(paste0("https://github.com/communitiesuk/dluhctheme/raw/master/data/",map_match$filenames[which(map_match$year==year)]))
+  if(year==2020){
+    data("LAD_Dec2020_BUC")
+    LA_map_data <- LAD_Dec2020_BUC
+  }else if(year == 2021){
+    data("LAD_May2021_BUC")
+    LA_map_data <- LAD_May2021_BUC
+
+  }else{
+    data("LAD_Dec2022_BUC")
+    LA_map_data <- LAD_Dec2022_BUC
+  }
+
 
 
 

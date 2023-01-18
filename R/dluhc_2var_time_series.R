@@ -21,6 +21,9 @@ dluhc_2var_time_series <- function(.data,datecol,ycol,groupcol,dateformat = "%Y-
     stop("Date column not in format specified. Check the dateformat argument in the function")
     }
 
+  if(any(replace_na(is.numeric(pull(.data,{{ycol}})),TRUE)==FALSE)){
+    stop("Value column contains non-numeric values. Check your data and try again")
+  }
 
 
   .data <- .data %>%

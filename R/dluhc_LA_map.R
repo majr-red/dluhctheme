@@ -19,6 +19,10 @@
 #' dluhc_LA_map(df,a1a,organisation.id,year = 2020,countries = "E",save = TRUE, filepath = "Council_Housing_Stock_map.png")
 dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 2022,countries = "E",save = FALSE,filepath = NULL){
 
+  library(tidyverse)
+  library(sf)
+
+
   if(countries %in% c("E","E+W","GB","UK")==FALSE){
     stop("The country variable you supplied is invalid. It must be one of:
          E, E+W, GB, UK. These represent England, England and Wales, Great Britain and United Kingdom respectively")
@@ -125,7 +129,10 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
       width=codes_match$width[which(codes_match$country==countries)],
       height =codes_match$height[which(codes_match$country==countries)]
     )
-  finalmap
 
-  if(save){ggsave(finalmap,filename = filepath)}
+  if(save){
+    ggsave(finalmap,filename = filepath)
+  }else{
+      return(finalmap)
+    }
 }

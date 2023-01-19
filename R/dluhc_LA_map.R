@@ -4,7 +4,7 @@
 #' @param .data An sf object which has data broken down by local authority. This function only works for data in local authority breakdown only.
 #' @param variable The column in the .data which has the numeric value to be mapped
 #' @param LA_col The column which contains the Local Authority code
-#' @param map_colour The colour which you want to represent the high value, the low value will always be white
+#' @param map_colours The colour which you want to represent the low and high values, must be in vector form
 #' @param year The year which the LA codes you are using relate to
 #' @param countries The countries which you wish to appear on the map. These are E, E+W, GB and UK for England, England+Wales, Great Britain and United Kingdom respectively
 #' @param save A TRUE/FALSE statement if you want the file to be exported as a png file. If TRUE, the filepath must be defined
@@ -17,7 +17,7 @@
 #' rawdata <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1084731/LAHS_all_data_2020_2021_-_06_2022.csv")
 #' df <- select(rawdata,organisation.id,a1a)
 #' dluhc_LA_map(df,a1a,organisation.id,year = 2020,countries = "E",save = TRUE, filepath = "Council_Housing_Stock_map.png")
-dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 2022,countries = "E",save = FALSE,filepath = NULL){
+dluhc_LA_map <- function(.data,variable,LA_col,map_colours = c("#FFFFFF","#012169"),year = 2022,countries = "E",save = FALSE,filepath = NULL){
 
   library(tidyverse)
   library(sf)
@@ -32,11 +32,13 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
     data.frame(
       country = c("E","E+W","GB","UK"),
       codes = c("E0","E0|W","E0|W|S","E0|W|S|N"),
-      x_adjust = c(0.70,0.70,0.66,0.56),
-      y_adjust = c(0.56,0.56,0.35,0.4),
+      x_adjust = c(0.75,0.76,0.68,0.68),
+      y_adjust = c(0.54,0.52,0.3,0.3),
       width = c(0.2,0.2,0.15,0.15),
-      height = c(0.2,0.2,0.15,0.15)
-    )
+      height = c(0.2,0.2,0.15,0.15),
+      legendx = c(0.29,0.23,0.1,0.1),
+      legendy = c(0.44,0.75,0.27,0.27)
+      )
 
   map_match <-
     data.frame(
@@ -82,11 +84,12 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
     ggplot(.data) +
     geom_sf(aes(fill = {{variable}}),colour = "black",size=0.02) +
     theme_void() +
-    scale_fill_gradient(low="#FFFFFF",high = map_colour) +
+    scale_fill_gradient(labels = scales::comma,low = map_colours[1],high = map_colours[2]) +
     theme(
       plot.title=element_blank(),
-      legend.position = c(0.1,0.5),
-      legend.title = element_text(color = map_colour, face = "bold", vjust = 0.8),
+      legend.position = c(codes_match$legendx[which(codes_match$country==countries)],
+                          codes_match$legendy[which(codes_match$country==countries)]),
+      legend.title = element_text(color = "black", face = "bold", vjust = 0.8),
       plot.margin = margin(10, 0, 10, 0)) #add space around the plot
 
 
@@ -136,3 +139,4 @@ dluhc_LA_map <- function(.data,variable,LA_col,map_colour = "#012169",year = 202
       return(finalmap)
     }
 }
+

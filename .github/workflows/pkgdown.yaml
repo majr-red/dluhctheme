@@ -2,9 +2,9 @@
 # Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
 on:
   push:
-    branches: [main, master]
+    branches: [main, master, pkgdown_setup_majr]
   pull_request:
-    branches: [main, master]
+    branches: [main, master, pkgdown_setup_majr]
   release:
     types: [published]
   workflow_dispatch:

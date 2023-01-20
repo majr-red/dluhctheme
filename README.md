@@ -8,7 +8,7 @@
 
 The goal of dluhctheme is to provide standard data visualization themes
 for `ggplot2::ggplot()` output in
-(DLUHC)\[<https://levellingup.gov.uk>\],
+[DLUHC](https://www.gov.uk/government/organisations/department-for-levelling-up-housing-and-communities)
 
 ## Installation
 

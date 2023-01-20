@@ -9,11 +9,11 @@
 #' @export
 #'
 #' @examples
-#' df <- dplyr::filter(gapminder::gapminder,country=="Australia"|country=="China")
+#' df <- dluhctheme::Social_Housing_Sales
 #'
-#' dluhc_2var_time_series(.data=df,datecol = year, ycol = lifeExp, groupcol = country, dateformat = "%Y")
+#' two_line_timeseries(.data=df,datecol = year, ycol = value, groupcol = type, dateformat = "%Y")
 
-dluhc_2var_time_series <- function(.data,datecol,ycol,groupcol,dateformat = "%Y-%m-%d"){
+two_line_timeseries <- function(.data,datecol,ycol,groupcol,dateformat = "%Y-%m-%d"){
   library(tidyverse)
 
   is.convertible.to.date <- function(x) !is.na(as.Date(as.character(x), tz = 'UTC', format = dateformat))

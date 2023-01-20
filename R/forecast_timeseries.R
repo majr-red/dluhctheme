@@ -1,4 +1,4 @@
-#' Create a single line time series graph in a dluhc theme for a line which has a predicted value
+#' Create a single line time series graph in a dluhc theme for a line which has a predicted/forecast value
 #'
 #' @param .data A dataframe in long format with 2 columns necesarry: Date and value
 #' @param xcol The column name which contains the date value in a widely used date format
@@ -6,17 +6,19 @@
 #' @param cutdate The date which the predicted values begin from
 #' @param dottedline A TRUE/FALSE statement to decide if you want a vertical dotted line on the graph to split the prediction and the recorded values
 #' @param label_names A vector containing the 2 words you want as the label for your lines, the default is c("Predicted", "Actual")
-#'
+#' @param dateformat The format which the date is presented in using the standard R date format, see here for more detail https://www.statology.org/r-date-format/
 #' @return
 #' @export
 #'
 #' @examples
-dluhc_actual_predict <- function(.data,xcol,ycol,cutdate,dottedline=TRUE,label_names = c("Predicted","Actual")){
+#' df <- dluhctheme::GDP_Prediction
+#' forecast_timeseries(df,year,ycol=GDP,cutdate = 2022,dateformat = "%Y", label_names = c("Forecast","Actual"))
+forecast_timeseries <- function(.data,xcol,ycol,cutdate,dateformat,dottedline=TRUE,label_names = c("Predicted","Actual")){
   library(tidyverse)
-  cutdate = as.Date(cutdate,tryFormats = c("%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"))
+  cutdate = as.Date(cutdate,tryFormats = dateformat)
 
 .data <- .data %>%
-    mutate(Date = as.Date({{xcol}},tryFormats = c("%Y-%m-%d","%d/%m/%Y","%d/%m/%y","%e/%m/%Y","%d-%b-%Y","%d-%b-%y"))) %>%
+    mutate(Date = as.Date({{xcol}},tryFormats = dateformat)) %>%
     mutate(value = {{ycol}}) %>%
   mutate(prediction = ifelse(Date>=cutdate,label_names[1],label_names[2]))
 

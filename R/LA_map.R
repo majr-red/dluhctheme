@@ -14,10 +14,9 @@
 #' @export
 #'
 #' @examples
-#' rawdata <- read.csv("https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1084731/LAHS_all_data_2020_2021_-_06_2022.csv")
-#' df <- select(rawdata,organisation.id,a1a)
-#' dluhc_LA_map(df,a1a,organisation.id,year = 2020,countries = "E",save = TRUE, filepath = "Council_Housing_Stock_map.png")
-dluhc_LA_map <- function(.data,variable,LA_col,map_colours = c("#FFFFFF","#012169"),year = 2022,countries = "E",save = FALSE,filepath = NULL){
+#' df <- dluhctheme::Net_Additions_LA
+#' LA_map(df,variable = Net_Additions_per_1000,LA_col = LA_Code,year = 2021,countries = "E",save = TRUE, filepath = "Net_Additions_map.png")
+LA_map <- function(.data,variable,LA_col,map_colours = c("#FFFFFF","#012169"),year = 2022,countries = "E",save = FALSE,filepath = NULL){
 
   library(tidyverse)
   library(sf)
